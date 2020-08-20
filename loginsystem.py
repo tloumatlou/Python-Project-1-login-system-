@@ -1,11 +1,12 @@
 from getpass import getpass
 
 f=open("names.txt","a")#to store usernames
+p=open("pass.txt","a")#to store passwords
 A=input("Do you have an account? Y/N: ")
 def login(p):
 	name=input("Enter username: ")
 	while True:
-		pas=input("Enter password: ")
+		pas=getpass("Enter password: ")
 		if pas ==p:
 			print("Access granted!")
 			break
@@ -28,5 +29,6 @@ else:
 				print("Passwords don't match!")
 			else:
 				print("Created account")
+				p.write(cpass)#append password
 				break
 f.close()
